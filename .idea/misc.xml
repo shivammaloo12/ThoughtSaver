@@ -3,10 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/ThoughtSaver/app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.1555" />
+        <entry key="..\:/ThoughtSaver/app/src/main/res/layout/activity_createnote.xml" value="0.1859375" />
         <entry key="..\:/ThoughtSaver/app/src/main/res/layout/activity_forgotpassword.xml" value="0.2" />
         <entry key="..\:/ThoughtSaver/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/ThoughtSaver/app/src/main/res/layout/activity_notes.xml" value="0.2" />
         <entry key="..\:/ThoughtSaver/app/src/main/res/layout/activity_signup.xml" value="0.2" />
+        <entry key="..\:/ThoughtSaver/app/src/main/res/layout/notes_layout.xml" value="0.25" />
+        <entry key="..\:/ThoughtSaver/app/src/main/res/menu/menu.xml" value="0.22" />
       </map>
     </option>
   </component>
