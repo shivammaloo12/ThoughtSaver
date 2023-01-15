@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "892849094765",
+    "project_id": "thoughtsaver-9115d",
+    "storage_bucket": "thoughtsaver-9115d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:892849094765:android:573c3b0b2609e3e4527f64",
+        "android_client_info": {
+          "package_name": "com.shivam.thoughtsaver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "892849094765-7jd33e55ks76rhcc6mcb1odn9m9j1nc4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfm8XJ5dDkNDtPtFpZPYzJs2cbzP8xb9U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "892849094765-7jd33e55ks76rhcc6mcb1odn9m9j1nc4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
