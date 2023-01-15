@@ -1,5 +1,6 @@
 package com.shivam.thoughtsaver;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,12 +11,21 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import org.w3c.dom.Text;
 
 public class signup extends AppCompatActivity {
     private EditText msignupemail,msignuppassword;
     private Button mbtnsignup;
     private TextView mgotologin;
+
+    private FirebaseAuth firebaseAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +37,8 @@ public class signup extends AppCompatActivity {
         msignuppassword=findViewById(R.id.textsignuppassword);
         mbtnsignup=findViewById(R.id.btnsignup);
         mgotologin=findViewById(R.id.gotologin);
+
+        firebaseAuth=FirebaseAuth.getInstance();
 
         mgotologin.setOnClickListener(new View.OnClickListener() {
 
@@ -53,11 +65,43 @@ public class signup extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Password should greater than 7", Toast.LENGTH_SHORT).show();
                 }else{
 
+                    firebaseAuth.createUserWithEmailAndPassword(mail,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+
+                            if(task.isSuccessful()){
+                                Toast.makeText(getApplicationContext(), "Registrstion Successful", Toast.LENGTH_SHORT).show();
+                                sendEmailVerfication();
+                            }else{
+                                Toast.makeText(getApplicationContext(), "Failed to register", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+
                 }
 
             }
 
         });
+    }
+    //send email verification
+
+    private void sendEmailVerfication(){
+        FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
+
+        if(firebaseUser!=null){
+            firebaseUser.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    Toast.makeText(getApplicationContext(), "Verification Email is sent,Verify and Login Again", Toast.LENGTH_SHORT).show();
+                    firebaseAuth.signOut();
+                    finish();
+                    startActivity(new Intent(signup.this,MainActivity.class));
+                }
+            });
+        }else{
+            Toast.makeText(getApplicationContext(), "Failed to send verification email", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }
