@@ -71,8 +71,9 @@ public class createnote extends AppCompatActivity {
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(getApplicationContext(),"Failed to create note..",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"Failed to create note.."+e,Toast.LENGTH_SHORT).show();
                            // startActivity(new Intent(createnote.this,notesActivity.class));
+
                         }
                     });
                 }
